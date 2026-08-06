@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#102e26">
+  <meta name="description" content="《挎包里的津沽》三代人金融记忆体验游戏。">
+  <title>挎包里的津沽｜三代人体验游戏</title>
+  <link rel="stylesheet" href="game.css">
+</head>
+<body>
+  <canvas id="worldCanvas" aria-label="随游戏时代变化的天津城乡场景"></canvas>
+  <div class="world-vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <header class="game-header">
+    <button class="brand" id="homeButton" type="button" aria-label="返回游戏首页">
+      <span class="brand-bag" aria-hidden="true"><i></i></span>
+      <span><strong>挎包里的津沽</strong><small>三代人体验游戏</small></span>
+    </button>
+    <div class="header-progress" aria-label="游戏进度">
+      <span>信用印记</span>
+      <i data-progress-dot="grandparent"></i>
+      <i data-progress-dot="parent"></i>
+      <i data-progress-dot="youth"></i>
+      <strong id="headerProgress">0 / 3</strong>
+    </div>
+    <div class="header-actions">
+      <button id="archiveButton" type="button">档案库</button>
+      <button id="soundButton" type="button" aria-pressed="false">声音：关</button>
+    </div>
+  </header>
+
+  <main class="game-root">
+    <section class="screen title-screen is-active" id="titleScreen" aria-labelledby="gameTitle">
+      <div class="title-copy">
+        <p class="eyebrow">遗产 · 记忆 · 视界</p>
+        <h1 id="gameTitle">挎包里的<br><em>津沽</em></h1>
+        <p>成为三个时代里的普通天津人。走进他们的一天，做出关于生产、经营与数字生活的选择。</p>
+        <button class="primary-action" id="startButton" type="button">戴上耳机，开始旅程</button>
+        <small>合成角色 · 史实节点可追溯 · 未来场景为设计推演</small>
+      </div>
+      <div class="title-bag" aria-hidden="true">
+        <span class="title-strap"></span>
+        <span class="title-body"><i></i><b></b></span>
+        <span class="title-shadow"></span>
+      </div>
+      <div class="title-years" aria-hidden="true">
+        <span>1952</span><i></i><span>2005</span><i></i><span>2010</span><i></i><span>未来</span>
+      </div>
+    </section>
+
+    <section class="screen identity-screen" id="identityScreen" aria-labelledby="identityTitle" hidden>
+      <div class="screen-heading">
+        <p class="eyebrow">三代人的信用路</p>
+        <h2 id="identityTitle">选择一个身份</h2>
+        <p>三个身份可以自由体验。每一程都包含寻找、取舍与装包三项任务。</p>
+      </div>
+      <div class="identity-grid">
+        <button class="identity-card" type="button" data-role="grandparent">
+          <span class="identity-number">01</span>
+          <span class="identity-era">1978 · 天津南郊乡村</span>
+          <span class="identity-portrait portrait-grandparent" aria-hidden="true"><i></i><b></b></span>
+          <strong>杨凤英</strong>
+          <small>生产队会计</small>
+          <p>春耕将至，你要把一笔乡土信用变成清清楚楚的账。</p>
+          <i class="identity-status">进入这一程</i>
+        </button>
+        <button class="identity-card" type="button" data-role="parent">
+          <span class="identity-number">02</span>
+          <span class="identity-era">1998 · 天津区县乡镇</span>
+          <span class="identity-portrait portrait-parent" aria-hidden="true"><i></i><b></b></span>
+          <strong>李建国</strong>
+          <small>乡镇个体户</small>
+          <p>订单来了、机器要换，你要在发展速度与经营安全间做出判断。</p>
+          <i class="identity-status">进入这一程</i>
+        </button>
+        <button class="identity-card" type="button" data-role="youth">
+          <span class="identity-number">03</span>
+          <span class="identity-era">2026 · 天津乡村振兴场景</span>
+          <span class="identity-portrait portrait-youth" aria-hidden="true"><i></i><b></b></span>
+          <strong>周晓桐</strong>
+          <small>返乡创业者</small>
+          <p>订单都在手机里，你要让数字效率与服务温度同时在线。</p>
+          <i class="identity-status">进入这一程</i>
+        </button>
+      </div>
+      <button class="future-lock" id="futureLock" type="button" disabled>集齐三枚信用印记后，进入未来视界</button>
+    </section>
+
+    <section class="screen role-screen" id="roleScreen" aria-labelledby="roleName" hidden>
+      <div class="role-hud">
+        <button id="backToRoles" type="button">返回身份地图</button>
+        <div class="role-hud-title">
+          <span id="roleChapter">第一程 · 1978</span>
+          <strong id="roleName">杨凤英</strong>
+          <small id="roleOccupation">生产队会计</small>
+        </div>
+        <div class="step-meter" aria-label="当前身份任务进度">
+          <span id="stepLabel">任务 1 / 3</span>
+          <i></i><i></i><i></i>
+        </div>
+      </div>
+
+      <div class="scene-hotspots" id="sceneHotspots"></div>
+      <div class="place-label" id="placeLabel"><span>1978 · 春耕前</span><strong>天津南郊乡村</strong></div>
+
+      <aside class="mission-panel" aria-live="polite">
+        <div class="mission-source">
+          <span id="missionSource">情境复原</span>
+          <small id="missionType">寻找时代线索</small>
+        </div>
+        <h2 id="missionTitle">春耕就要开始，先把账理清</h2>
+        <p id="missionBody">院里散落着那个年代的金融物件。找到三件能帮助登记、计算和送达信用的工具。</p>
+        <div class="mission-actions" id="missionActions"></div>
+        <p class="mission-feedback" id="missionFeedback">0 / 3 件线索已装入挎包</p>
+      </aside>
+
+      <div class="inventory" aria-label="挎包中的线索">
+        <span class="inventory-bag" aria-hidden="true"><i></i><b></b></span>
+        <div><small>挎包里</small><p id="inventoryText">还没有线索</p></div>
+      </div>
+    </section>
+
+    <section class="screen result-screen" id="resultScreen" aria-labelledby="resultTitle" hidden>
+      <div class="stamp-earned" id="earnedStamp" aria-hidden="true"><span>乡土信用</span><strong>信用在路上</strong><small>第一代</small></div>
+      <p class="eyebrow">一程完成</p>
+      <h2 id="resultTitle">你把“账目清楚、承诺有据”装进了挎包</h2>
+      <p id="resultBody">对第一代而言，信用的温度来自熟悉的人，信用的分量来自清楚的账。</p>
+      <div class="result-actions">
+        <button class="primary-action" id="nextRoleButton" type="button">体验下一代</button>
+        <button id="roleMapButton" type="button">返回身份地图</button>
+      </div>
+    </section>
+
+    <section class="screen future-screen" id="futureScreen" aria-labelledby="futureTitle" hidden>
+      <div class="future-heading">
+        <p class="eyebrow">最终章 · 视界</p>
+        <h2 id="futureTitle">把三代人的挎包，交给未来</h2>
+        <p>拖动权重，决定未来金融服务更偏向关系与稳健，还是数字与效率。</p>
+      </div>
+      <div class="future-control">
+        <div><span>稳健传承</span><strong id="steadyValue">55</strong><small>%</small></div>
+        <input id="futureSlider" type="range" min="0" max="100" value="45" aria-label="调节创新变革权重">
+        <div><span>创新变革</span><strong id="innovationValue">45</strong><small>%</small></div>
+      </div>
+      <div class="future-result" aria-live="polite">
+        <span id="futureMode">线上线下协同</span>
+        <h3 id="futureScenario">手机完成常用业务，服务站处理复杂需求，关键环节保留人工复核。</h3>
+        <p id="futureRisk">底线：数字化不能撤走人工通道，也不能让数据超出用户授权边界。</p>
+      </div>
+      <div class="future-principles" aria-label="不可牺牲的金融服务原则">
+        <span>风险可解释</span><span>隐私有边界</span><span>人工能兜底</span><span>服务不落人</span>
+      </div>
+      <button class="primary-action" id="makeEnding" type="button">生成我的未来结局</button>
+    </section>
+
+    <section class="screen ending-screen" id="endingScreen" aria-labelledby="endingTitle" hidden>
+      <div class="ending-stamps" aria-hidden="true">
+        <span>乡土信用</span><span>稳健经营</span><span>数字普惠</span>
+      </div>
+      <p class="eyebrow">遗产 · 记忆 · 视界</p>
+      <h2 id="endingTitle">挎包会旧，<br>服务的路不会停。</h2>
+      <p id="endingText">你选择了让稳健与创新并行。技术扩大了抵达的范围，挎包精神守住了信用的重量。</p>
+      <blockquote>金融老字号的未来，不是复制过去，而是把过去珍视的东西带向明天。</blockquote>
+      <div class="ending-actions">
+        <button class="primary-action" id="downloadEnding" type="button">保存结局海报</button>
+        <button id="restartButton" type="button">重新体验</button>
+      </div>
+    </section>
+  </main>
+
+  <dialog class="archive-dialog" id="archiveDialog">
+    <button class="dialog-close" id="closeArchive" type="button" aria-label="关闭档案库">×</button>
+    <p class="eyebrow">遗产 / 史实档案</p>
+    <h2>天津农信到天津农商银行</h2>
+    <div class="archive-timeline">
+      <article><time>1952</time><h3>白塘口村信用社</h3><p>天津农商银行官网记载，其起源于天津南郊区白塘口村信用社。</p></article>
+      <article><time>2005</time><h3>天津农村合作银行</h3><p>机构改制为天津农村合作银行，城乡金融服务继续发展。</p></article>
+      <article><time>2010.06</time><h3>天津农商银行</h3><p>改制重组为天津农村商业银行，服务网络覆盖城乡。</p></article>
+      <article><time>2025.06</time><h3>“津门老字号”</h3><p>官网披露，天津农商银行于2025年6月获评“津门老字号”。</p></article>
+    </div>
+    <div class="archive-boundary">
+      <strong>创作边界</strong>
+      <p>杨凤英、李建国、周晓桐均为合成角色；游戏任务属于依据历史语境进行的情境复原；最终章属于未来设计推演，不代表真实业务流程或金融产品承诺。</p>
+    </div>
+    <a href="https://www.trcbank.com.cn/class/intro/index.htm" target="_blank" rel="noreferrer">公开资料：天津农商银行“今日农商行”</a>
+  </dialog>
+
+  <audio id="backgroundMusic" src="assets/津沽舒缓纯音乐.wav" preload="auto" loop></audio>
+  <script src="game.js"></script>
+</body>
+</html>
