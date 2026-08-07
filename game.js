@@ -526,9 +526,9 @@
     ctx.fillStyle = "#c8a653";
     ctx.fillRect(96, 84, 5, 732);
     ctx.fillStyle = "#eee7d8";
-    ctx.font = "700 88px Microsoft YaHei";
+    ctx.font = '900 88px "Noto Serif SC", "Microsoft YaHei", serif';
     ctx.fillText("挎包里的津沽", 150, 210);
-    ctx.font = "32px Microsoft YaHei";
+    ctx.font = '500 32px "Noto Serif SC", "Microsoft YaHei", serif';
     ctx.fillStyle = "rgba(238,231,216,0.7)";
     ctx.fillText("三代人的信用路 · 我的未来结局", 152, 275);
     ctx.fillStyle = "#9a4b3a";
@@ -543,9 +543,9 @@
     ctx.fillStyle = "#eee7d8";
     ctx.font = "28px Microsoft YaHei";
     ctx.fillText("% 创新变革", 920, 470);
-    ctx.font = "700 32px Microsoft YaHei";
+    ctx.font = '700 32px "Noto Serif SC", "Microsoft YaHei", serif';
     ctx.fillText($("#futureMode").textContent, 150, 605);
-    ctx.font = "23px Microsoft YaHei";
+    ctx.font = '400 23px "Noto Sans SC", "Microsoft YaHei", sans-serif';
     ctx.fillStyle = "rgba(238,231,216,0.68)";
     ctx.fillText("乡土信用 · 稳健经营 · 数字普惠", 150, 675);
     ctx.fillStyle = "#c8a653";
@@ -601,19 +601,21 @@
     ctx.fill();
   }
 
-  function drawVillage(ctx, width, height, time) {
+  function drawVillage(ctx, width, height, time, hideHouse = false) {
     const base = height * 0.65;
-    ctx.fillStyle = "#8f6a4e";
-    ctx.fillRect(width * 0.07, base - 170, width * 0.25, 170);
-    ctx.fillStyle = "#3d4035";
-    ctx.beginPath();
-    ctx.moveTo(width * 0.05, base - 170);
-    ctx.lineTo(width * 0.195, base - 250);
-    ctx.lineTo(width * 0.34, base - 170);
-    ctx.closePath();
-    ctx.fill();
-    ctx.fillStyle = "#c4a15f";
-    ctx.fillRect(width * 0.15, base - 105, 45, 105);
+    if (!hideHouse) {
+      ctx.fillStyle = "#8f6a4e";
+      ctx.fillRect(width * 0.07, base - 170, width * 0.25, 170);
+      ctx.fillStyle = "#3d4035";
+      ctx.beginPath();
+      ctx.moveTo(width * 0.05, base - 170);
+      ctx.lineTo(width * 0.195, base - 250);
+      ctx.lineTo(width * 0.34, base - 170);
+      ctx.closePath();
+      ctx.fill();
+      ctx.fillStyle = "#c4a15f";
+      ctx.fillRect(width * 0.15, base - 105, 45, 105);
+    }
     ctx.strokeStyle = "#27392e";
     ctx.lineWidth = 11;
     ctx.beginPath();
@@ -719,7 +721,7 @@
     drawHill(ctx, width, height * 0.52, "rgba(35,64,50,0.72)", timestamp * 0.0001);
     drawHill(ctx, width, height * 0.59, "rgba(25,54,43,0.92)", 2 + timestamp * 0.00013);
 
-    if (roleScene === "grandparent") drawVillage(ctx, width, height, timestamp);
+    if (roleScene === "grandparent") drawVillage(ctx, width, height, timestamp, activeScreen === "title");
     if (roleScene === "parent") drawTown(ctx, width, height);
     if (roleScene === "youth") drawFuture(ctx, width, height, timestamp);
 
@@ -739,6 +741,11 @@
 
   updateGlobalProgress();
   updateFuture();
-  showScreen("title");
+  const debugParams = new URLSearchParams(window.location.search);
+  const debugScreen = debugParams.get("screen");
+  const debugRole = debugParams.get("role");
+  if (debugScreen === "role" && roles[debugRole]) beginRole(debugRole);
+  else if (debugScreen && screens[debugScreen]) showScreen(debugScreen);
+  else showScreen("title");
   requestAnimationFrame(drawWorld);
 })();

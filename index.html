@@ -6,6 +6,8 @@
   <meta name="theme-color" content="#102e26">
   <meta name="description" content="《挎包里的津沽》三代人金融记忆体验游戏。">
   <title>挎包里的津沽｜三代人体验游戏</title>
+  <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="game.css">
 </head>
 <body>
@@ -41,9 +43,21 @@
         <small>合成角色 · 史实节点可追溯 · 未来场景为设计推演</small>
       </div>
       <div class="title-bag" aria-hidden="true">
-        <span class="title-strap"></span>
-        <span class="title-body"><i></i><b></b></span>
-        <span class="title-shadow"></span>
+        <svg class="title-bag-svg" viewBox="0 0 320 300">
+          <ellipse class="bag-shadow" cx="160" cy="274" rx="112" ry="15"/>
+          <path class="bag-strap" d="M64 138 C60 36 260 36 256 138"/>
+          <path class="bag-strap-inner" d="M64 138 C60 36 260 36 256 138"/>
+          <rect class="bag-body" x="42" y="122" width="236" height="128" rx="12"/>
+          <path class="bag-body-shade" d="M42 196 H278 V238 C278 245 272 250 266 250 H54 C48 250 42 245 42 238 Z"/>
+          <path class="bag-flap" d="M42 134 H278 V192 C278 216 222 230 160 230 C98 230 42 216 42 192 Z"/>
+          <path class="bag-stitch" d="M54 142 H266 V190 C266 208 216 220 160 220 C104 220 54 208 54 190 Z"/>
+          <polygon class="bag-star" points="160,149 164.5,161.9 178.1,162.1 167.2,170.4 171.2,183.4 160,175.6 148.8,183.4 152.8,170.4 141.9,162.1 155.5,161.9"/>
+          <rect class="bag-buckle-strap" x="149" y="206" width="22" height="38" rx="4"/>
+          <rect class="bag-buckle" x="145" y="216" width="30" height="18" rx="3"/>
+          <rect class="bag-buckle-pin" x="157" y="222" width="6" height="6"/>
+          <line class="bag-seam" x1="56" y1="146" x2="56" y2="240"/>
+          <line class="bag-seam" x1="264" y1="146" x2="264" y2="240"/>
+        </svg>
       </div>
       <div class="title-years" aria-hidden="true">
         <span>1952</span><i></i><span>2005</span><i></i><span>2010</span><i></i><span>未来</span>
@@ -60,7 +74,34 @@
         <button class="identity-card" type="button" data-role="grandparent">
           <span class="identity-number">01</span>
           <span class="identity-era">1978 · 天津南郊乡村</span>
-          <span class="identity-portrait portrait-grandparent" aria-hidden="true"><i></i><b></b></span>
+          <span class="identity-portrait portrait-grandparent" aria-hidden="true">
+            <svg viewBox="0 0 120 150">
+              <path class="p-backdrop" d="M60 6 C30 6 8 28 8 56 V144 H112 V56 C112 28 90 6 60 6 Z"/>
+              <ellipse class="p-ground" cx="60" cy="138" rx="34" ry="5"/>
+              <path class="p-coat" d="M24 150 V116 C24 96 40 84 60 84 C80 84 96 96 96 116 V150 Z"/>
+              <line class="p-strap" x1="40" y1="86" x2="80" y2="150"/>
+              <line class="p-placket" x1="60" y1="88" x2="60" y2="150"/>
+              <g class="p-knots">
+                <line x1="54" y1="98" x2="66" y2="98"/>
+                <line x1="54" y1="112" x2="66" y2="112"/>
+                <line x1="54" y1="126" x2="66" y2="126"/>
+                <line x1="54" y1="140" x2="66" y2="140"/>
+              </g>
+              <rect class="p-neck" x="53" y="70" width="14" height="14" rx="4"/>
+              <circle class="p-skin" cx="60" cy="52" r="17"/>
+              <path class="p-scarf" d="M60 28 C45 28 36 40 37 54 C38 64 42 71 46 75 C44 65 49 58 60 58 C71 58 76 65 74 75 C78 71 82 64 83 54 C84 40 75 28 60 28 Z"/>
+              <path class="p-scarf-tie" d="M52 73 L60 84 L68 73 L65 92 H55 Z"/>
+              <circle class="p-scarf-dot" cx="48" cy="42" r="1.6"/>
+              <circle class="p-scarf-dot" cx="72" cy="42" r="1.6"/>
+              <circle class="p-scarf-dot" cx="60" cy="35" r="1.6"/>
+              <g class="p-book" transform="translate(80 106) rotate(-8)">
+                <rect width="26" height="20" rx="2"/>
+                <rect class="p-book-line" x="4" y="4" width="18" height="12" rx="1"/>
+                <line class="p-book-mark" x1="8" y1="8" x2="18" y2="8"/>
+                <line class="p-book-mark" x1="8" y1="12" x2="15" y2="12"/>
+              </g>
+            </svg>
+          </span>
           <strong>杨凤英</strong>
           <small>生产队会计</small>
           <p>春耕将至，你要把一笔乡土信用变成清清楚楚的账。</p>
@@ -69,7 +110,28 @@
         <button class="identity-card" type="button" data-role="parent">
           <span class="identity-number">02</span>
           <span class="identity-era">1998 · 天津区县乡镇</span>
-          <span class="identity-portrait portrait-parent" aria-hidden="true"><i></i><b></b></span>
+          <span class="identity-portrait portrait-parent" aria-hidden="true">
+            <svg viewBox="0 0 120 150">
+              <path class="p-backdrop" d="M60 6 C30 6 8 28 8 56 V144 H112 V56 C112 28 90 6 60 6 Z"/>
+              <ellipse class="p-ground" cx="60" cy="138" rx="34" ry="5"/>
+              <path class="p-jacket" d="M22 150 V114 C22 94 40 82 60 82 C80 82 98 94 98 114 V150 Z"/>
+              <path class="p-shirt" d="M53 84 L60 98 L67 84 Z"/>
+              <path class="p-lapel-l" d="M60 84 L45 95 L51 114 L60 100 Z"/>
+              <path class="p-lapel-r" d="M60 84 L75 95 L69 114 L60 100 Z"/>
+              <line class="p-zip" x1="60" y1="112" x2="60" y2="150"/>
+              <rect class="p-neck" x="53" y="68" width="14" height="14" rx="4"/>
+              <circle class="p-ear" cx="43" cy="54" r="3.4"/>
+              <circle class="p-ear" cx="77" cy="54" r="3.4"/>
+              <circle class="p-skin" cx="60" cy="52" r="17"/>
+              <path class="p-hair" d="M42 54 C40 36 50 27 60 27 C70 27 80 36 78 54 C75 45 71 40 60 40 C49 40 45 45 42 54 Z"/>
+              <line class="p-part" x1="52" y1="31" x2="49" y2="42"/>
+              <g class="p-case" transform="translate(84 116)">
+                <rect width="28" height="21" rx="3"/>
+                <path class="p-case-handle" d="M8 0 C8 -6 20 -6 20 0"/>
+                <rect class="p-case-latch" x="11" y="8" width="6" height="4" rx="1"/>
+              </g>
+            </svg>
+          </span>
           <strong>李建国</strong>
           <small>乡镇个体户</small>
           <p>订单来了、机器要换，你要在发展速度与经营安全间做出判断。</p>
@@ -78,7 +140,35 @@
         <button class="identity-card" type="button" data-role="youth">
           <span class="identity-number">03</span>
           <span class="identity-era">2026 · 天津乡村振兴场景</span>
-          <span class="identity-portrait portrait-youth" aria-hidden="true"><i></i><b></b></span>
+          <span class="identity-portrait portrait-youth" aria-hidden="true">
+            <svg viewBox="0 0 120 150">
+              <path class="p-backdrop" d="M60 6 C30 6 8 28 8 56 V144 H112 V56 C112 28 90 6 60 6 Z"/>
+              <ellipse class="p-ground" cx="60" cy="138" rx="34" ry="5"/>
+              <path class="p-hoodie" d="M24 150 V116 C24 96 40 84 60 84 C80 84 96 96 96 116 V150 Z"/>
+              <path class="p-hood" d="M40 90 C44 78 76 78 80 90 C74 85 66 83 60 83 C54 83 46 85 40 90 Z"/>
+              <line class="p-string" x1="55" y1="92" x2="53" y2="108"/>
+              <line class="p-string" x1="65" y1="92" x2="67" y2="108"/>
+              <path class="p-apron" d="M45 104 H75 L79 150 H41 Z"/>
+              <line class="p-apron-strap" x1="45" y1="104" x2="52" y2="88"/>
+              <line class="p-apron-strap" x1="75" y1="104" x2="68" y2="88"/>
+              <rect class="p-apron-pocket" x="51" y="122" width="18" height="13" rx="2"/>
+              <rect class="p-neck" x="53" y="68" width="14" height="14" rx="4"/>
+              <circle class="p-skin" cx="60" cy="52" r="17"/>
+              <path class="p-hair-main" d="M42 56 C39 36 50 25 60 25 C70 25 81 36 78 56 C76 46 71 41 60 41 C49 41 44 46 42 56 Z"/>
+              <path class="p-ponytail" d="M76 42 C88 48 91 66 86 86 C84 94 77 98 73 95 C78 84 78 64 73 52 Z"/>
+              <circle class="p-tie" cx="77" cy="46" r="2.6"/>
+              <g class="p-phone" transform="translate(24 106) rotate(6)">
+                <rect width="15" height="24" rx="3"/>
+                <rect class="p-phone-screen" x="2.5" y="3.5" width="10" height="15" rx="1.5"/>
+                <circle class="p-phone-dot" cx="7.5" cy="21" r="1.2"/>
+              </g>
+              <circle class="p-hand" cx="35" cy="112" r="4.5"/>
+              <g class="p-box" transform="translate(86 128)">
+                <rect width="22" height="17" rx="2"/>
+                <line class="p-box-tape" x1="11" y1="0" x2="11" y2="17"/>
+              </g>
+            </svg>
+          </span>
           <strong>周晓桐</strong>
           <small>返乡创业者</small>
           <p>订单都在手机里，你要让数字效率与服务温度同时在线。</p>
