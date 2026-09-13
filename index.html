@@ -1,283 +1,279 @@
 <!doctype html>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102e26">
-  <meta name="description" content="《挎包里的津沽》三代人金融记忆体验游戏。">
+<html lang="zh-CN" data-page-node-id="HG3nyvctCFw2TGBAZ3ywY6">
+<head data-page-node-id="D6BcD3FYSCMPbipuOfQUcA">
+  <meta charset="utf-8" data-page-node-id="E8AORqFSvZ7jUBx10KA8ae">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" data-page-node-id="AT9pK6qCn2CXDEQz6yXj0S">
+  <meta name="theme-color" content="#0d2f25" data-page-node-id="8DkCCNAtC3jpgAoRCiaSoW">
+  <meta name="description" content="《挎包里的津沽》三代人金融记忆体验游戏：算盘结账、现金流调度、服务通道分配与未来资源规划。" data-page-node-id="fLFpB83JaZQwU4gdVEGpx7">
   <title>挎包里的津沽｜三代人体验游戏</title>
-  <link rel="preconnect" href="https://fonts.loli.net" crossorigin>
-  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@600;700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="game.css">
+  <link rel="preconnect" href="https://fonts.loli.net" crossorigin data-page-node-id="kIELbpzSiAm2Pd6xH8VME6">
+  <link rel="stylesheet" href="https://fonts.loli.net/css2?family=Noto+Serif+SC:wght@500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" data-page-node-id="5PJrf0KzkByU6sWzTih9Xm">
+  <link rel="stylesheet" href="game.css" data-page-node-id="XfH4ilgQPJdIODGP0nFxie">
 </head>
-<body>
-  <canvas id="worldCanvas" aria-label="随游戏时代变化的天津城乡场景"></canvas>
-  <div class="world-vignette" aria-hidden="true"></div>
-  <div class="grain" aria-hidden="true"></div>
+<body data-page-node-id="VOsmjqlsgLKC1oB5dOQ41H">
+  <canvas id="worldCanvas" aria-label="随游戏时代变化的天津城乡场景" data-page-node-id="d9MR5XTS4S8LDDy9YG5HiH"></canvas>
+  <div class="world-vignette" aria-hidden="true" data-page-node-id="wuu7uPa8ccO9anYHnsfUGy"></div>
+  <div class="paper-grain" aria-hidden="true" data-page-node-id="dvifPgHw5HOrQwjVC0uTZB"></div>
 
-  <header class="game-header">
-    <button class="brand" id="homeButton" type="button" aria-label="返回游戏首页">
-      <span class="brand-bag" aria-hidden="true"><i></i></span>
-      <span><strong>挎包里的津沽</strong><small>三代人体验游戏</small></span>
+  <header class="game-header" data-page-node-id="sqbQmOFWis5iebgb9MkEee">
+    <button class="brand" id="homeButton" type="button" aria-label="返回游戏首页" data-page-node-id="zb5wsuyDTxFrMLN7iOYQHT">
+      <span class="brand-seal" aria-hidden="true" data-page-node-id="lswe3082xxlJJUrm5l2Ofx">沽</span>
+      <span class="brand-text" data-page-node-id="l4ouQA58FWK9wA6xi3JjoE"><strong data-page-node-id="SIPaBm9z0qcuh0U15QSQ6X">挎包里的津沽</strong><small data-page-node-id="pqfXx7HEuhkV7FZPTGvWy0">三代人体验游戏</small></span>
     </button>
-    <div class="header-progress" aria-label="游戏进度">
-      <span>信用印记</span>
-      <i data-progress-dot="grandparent"></i>
-      <i data-progress-dot="parent"></i>
-      <i data-progress-dot="youth"></i>
-      <strong id="headerProgress">0 / 3</strong>
+
+    <div class="header-progress" aria-label="游戏进度" data-page-node-id="tkQTRGIWVlvrOkKCsNV9Ab">
+      <span class="header-progress-label" data-page-node-id="YegSqCIF6SkeXcPlXe5yZp">信用印记</span>
+      <i data-progress-dot="grandparent" title="乡土信用" data-page-node-id="b8Is9TyCXdIoy5xByHm0si"></i>
+      <i data-progress-dot="parent" title="稳健经营" data-page-node-id="pivfL0NKKgvFmBxm2KwA5j"></i>
+      <i data-progress-dot="youth" title="数字普惠" data-page-node-id="YHktDr0siW0jgbUcVrpEDT"></i>
+      <strong id="headerProgress" data-page-node-id="a6F2tz6O2m1T417PNmmghU">0 / 3</strong>
     </div>
-    <div class="header-actions">
-      <button id="archiveButton" type="button">档案库</button>
-      <button id="soundButton" type="button" aria-pressed="false">声音：关</button>
+
+    <div class="header-actions" data-page-node-id="pSo7WUNVZMVgDGcxEVv8oK">
+      <button id="ledgerButton" type="button" data-page-node-id="wDZyCkIB9EkDDmMSqi5P0P">信用存折</button>
+      <button id="archiveButton" type="button" data-page-node-id="RejGggmkdDXhCdax0RKQaX">档案库</button>
+      <button id="soundButton" type="button" aria-pressed="false" data-page-node-id="XoMHj32fw5erHCnJ7SEg46">声音：关</button>
     </div>
   </header>
 
-  <main class="game-root">
-    <section class="screen title-screen is-active" id="titleScreen" aria-labelledby="gameTitle">
-      <div class="title-copy">
-        <p class="eyebrow">遗产 · 记忆 · 视界</p>
-        <h1 id="gameTitle">挎包里的<br><em>津沽</em></h1>
-        <p>成为三个时代里的普通天津人。走进他们的一天，做出关于生产、经营与数字生活的选择。</p>
-        <button class="primary-action" id="startButton" type="button">戴上耳机，开始旅程</button>
-        <small>合成角色 · 史实节点可追溯 · 未来场景为设计推演</small>
+  <main class="game-root" data-page-node-id="445mWwtBejPnlKSDPTWoTf">
+
+    <!-- ============ 标题屏 ============ -->
+    <section class="screen title-screen is-active" id="titleScreen" aria-labelledby="gameTitle" data-page-node-id="qCAe9gARl8caEbQFie9QOo">
+      <p class="title-watermark" aria-hidden="true" data-page-node-id="pCelNygHbnLwwfUcllmu8n">沽</p>
+
+      <div class="title-copy" data-page-node-id="kOZX0yYKBP8bDL3gqnHoIc">
+        <p class="eyebrow" data-page-node-id="jz3Wa6TCkBpsTCrtZeA2Hl"><span class="seal-dot" aria-hidden="true" data-page-node-id="FsEYcqUhlMBgzG6trFE744"></span>遗产 · 记忆 · 视界</p>
+        <h1 id="gameTitle" data-page-node-id="VBLwos5f2RELeqEYhyiyah">挎包里的<br data-page-node-id="qIdNZg74da8B60KLpN8IYS"><em data-page-node-id="80KaO7b32kx9lDOyGSgCiq">津沽</em></h1>
+        <p class="title-lede" data-page-node-id="Ndkp7MStbKnYCxFp5N0rf7">三个时代，三个天津人。一只挎包、一把算盘、一部手机，把「信用」从田埂上送到今天。</p>
+        <button class="primary-action" id="startButton" type="button" data-page-node-id="wDlaZOYdfzozF8DG3pxupD">戴上耳机，开始旅程</button>
+        <p class="title-note" data-page-node-id="xsTcMYwVGSiLugTCUSPeEA">合成角色 · 史实节点可追溯 · 未来场景为设计推演</p>
+        <p class="title-resume" id="titleResume" hidden data-page-node-id="sgLNdiRakW8FabIXs8BdcG"><button id="resumeButton" type="button" data-page-node-id="sgW2TkZMj69T9JeRVAnVr8">你的旅程进行中 · 继续 →</button></p>
       </div>
-      <div class="title-bag" aria-hidden="true">
-        <svg class="title-bag-svg" viewBox="0 0 320 300">
-          <ellipse class="bag-shadow" cx="160" cy="274" rx="112" ry="15"/>
-          <path class="bag-strap" d="M64 138 C60 36 260 36 256 138"/>
-          <path class="bag-strap-inner" d="M64 138 C60 36 260 36 256 138"/>
-          <rect class="bag-body" x="42" y="122" width="236" height="128" rx="12"/>
-          <path class="bag-body-shade" d="M42 196 H278 V238 C278 245 272 250 266 250 H54 C48 250 42 245 42 238 Z"/>
-          <path class="bag-flap" d="M42 134 H278 V192 C278 216 222 230 160 230 C98 230 42 216 42 192 Z"/>
-          <path class="bag-stitch" d="M54 142 H266 V190 C266 208 216 220 160 220 C104 220 54 208 54 190 Z"/>
-          <polygon class="bag-star" points="160,149 164.5,161.9 178.1,162.1 167.2,170.4 171.2,183.4 160,175.6 148.8,183.4 152.8,170.4 141.9,162.1 155.5,161.9"/>
-          <rect class="bag-buckle-strap" x="149" y="206" width="22" height="38" rx="4"/>
-          <rect class="bag-buckle" x="145" y="216" width="30" height="18" rx="3"/>
-          <rect class="bag-buckle-pin" x="157" y="222" width="6" height="6"/>
-          <line class="bag-seam" x1="56" y1="146" x2="56" y2="240"/>
-          <line class="bag-seam" x1="264" y1="146" x2="264" y2="240"/>
+
+      <div class="title-bag" aria-hidden="true" data-page-node-id="QetQq5FTNQMTqTJoTAEuEs">
+        <svg class="title-bag-svg" viewBox="0 0 320 300" data-page-node-id="yMgGsgJe3plGEFZGVSqGYd">
+          <defs>
+            <linearGradient id="bagBodyGrad" x1="0.05" y1="0" x2="0.85" y2="1">
+              <stop offset="0" stop-color="#ad9f79"/>
+              <stop offset="0.42" stop-color="#8a8063"/>
+              <stop offset="1" stop-color="#5b5340"/>
+            </linearGradient>
+            <linearGradient id="bagFlapGrad" x1="0.12" y1="0" x2="0.78" y2="1">
+              <stop offset="0" stop-color="#9c936d"/>
+              <stop offset="0.58" stop-color="#7d7653"/>
+              <stop offset="1" stop-color="#585238"/>
+            </linearGradient>
+            <linearGradient id="bagSideGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#6f674a"/>
+              <stop offset="1" stop-color="#403a28"/>
+            </linearGradient>
+            <linearGradient id="bagStrapGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#332c21"/>
+              <stop offset="0.5" stop-color="#5a4f3b"/>
+              <stop offset="1" stop-color="#2b2419"/>
+            </linearGradient>
+            <radialGradient id="bagSheen" cx="0.34" cy="0.06" r="0.92">
+              <stop offset="0" stop-color="rgba(255,246,220,0.42)"/>
+              <stop offset="1" stop-color="rgba(255,246,220,0)"/>
+            </radialGradient>
+          </defs>
+          <ellipse class="bag-shadow" cx="160" cy="276" rx="116" ry="16" data-page-node-id="OZQ0TrPG62firs4iiUj7Bc"/>
+          <path class="bag-strap" d="M64 138 C60 36 260 36 256 138" data-page-node-id="mGWx8j5NhkJLRFborODJQT"/>
+          <path class="bag-strap-inner" d="M64 138 C60 36 260 36 256 138" data-page-node-id="WoxWivszNKvSy9AtSvZXkD"/>
+          <!-- 侧面厚度：露在主体右边，包才立得住，不是一张纸 -->
+          <path class="bag-side" d="M264 126 H284 C289 126 292 131 292 136 V232 C292 241 285 248 276 248 H264 Z" data-page-node-id="bagSideNode"/>
+          <rect class="bag-body" x="42" y="122" width="236" height="128" rx="12" data-page-node-id="48ND2FIZMfM7ePyYGSNGh3"/>
+          <path class="bag-body-shade" d="M42 196 H278 V238 C278 245 272 250 266 250 H54 C48 250 42 245 42 238 Z" data-page-node-id="QPFtCQw7km4AnkJegiQKbB"/>
+          <path class="bag-flap" d="M42 134 H278 V192 C278 216 222 230 160 230 C98 230 42 216 42 192 Z" data-page-node-id="h3SOuDvFfgF4daZi12D7pR"/>
+          <path class="bag-flap-lip" d="M42 134 H278 V154 C278 158 222 166 160 166 C98 166 42 158 42 154 Z" data-page-node-id="bagFlapLipNode"/>
+          <path class="bag-sheen" d="M42 122 H278 V206 H42 Z" data-page-node-id="bagSheenNode"/>
+          <path class="bag-stitch" d="M54 142 H266 V190 C266 208 216 220 160 220 C104 220 54 208 54 190 Z" data-page-node-id="GJlKSq4Ui9jv4SAk2sJ1fa"/>
+          <polygon class="bag-star" points="160,149 164.5,161.9 178.1,162.1 167.2,170.4 171.2,183.4 160,175.6 148.8,183.4 152.8,170.4 141.9,162.1 155.5,161.9" data-page-node-id="0lMVs6q53JJmGrWkY3XpHo"/>
+          <rect class="bag-buckle-strap" x="149" y="206" width="22" height="38" rx="4" data-page-node-id="W1hkJNU5p3ouzcvZTLHgTe"/>
+          <rect class="bag-buckle" x="145" y="216" width="30" height="18" rx="3" data-page-node-id="e4GrKbVRM6pgsDWkDySpIU"/>
+          <rect class="bag-buckle-pin" x="157" y="222" width="6" height="6" data-page-node-id="WrVMsEDz9gseJXttgbTGwH"/>
+          <line class="bag-seam" x1="56" y1="146" x2="56" y2="240" data-page-node-id="7UfctsBV1nVG2HrgHsZFbV"/>
+          <line class="bag-seam" x1="264" y1="146" x2="264" y2="240" data-page-node-id="M6gbODxnbKH0nUM0PR6S70"/>
         </svg>
       </div>
-      <div class="title-years" aria-hidden="true">
-        <span>1952</span><i></i><span>2005</span><i></i><span>2010</span><i></i><span>未来</span>
+
+      <div class="title-years" aria-hidden="true" data-page-node-id="VESzewnMkxlRUSgkKPVu9Z">
+        <span data-page-node-id="Do89TCQqsOFigSBOXs0ugU">1952</span><i data-page-node-id="PLYO8bq69OPkjjRN5MBe7B"></i><span data-page-node-id="oMuFHBTjOOjClTh2FRmjes">1978</span><i data-page-node-id="taVBfL5xrMwxdp6Qryn2Qr"></i><span data-page-node-id="HWmDAoadRV2T4qssJjMGBy">1998</span><i data-page-node-id="9XYqX9UO9ETJFdr8sPGEom"></i><span data-page-node-id="uYNl4JS0hou9wKFgafd6rm">2026</span><i data-page-node-id="71jd8wSO9TXNw7IO6UDidj"></i><span data-page-node-id="DG3KdB7YvdwIrbvmekKCDr">未来</span>
       </div>
     </section>
 
-    <section class="screen identity-screen" id="identityScreen" aria-labelledby="identityTitle" hidden>
-      <div class="screen-heading">
-        <p class="eyebrow">三代人的信用路</p>
-        <h2 id="identityTitle">选择一个身份</h2>
-        <p>三个身份可以自由体验。每一程都包含寻找、取舍与装包三项任务。</p>
+    <!-- ============ 身份选择屏 ============ -->
+    <section class="screen identity-screen" id="identityScreen" aria-labelledby="identityTitle" hidden data-page-node-id="jFOp8pQcpeDKFDDE8nDVI3">
+      <div class="screen-heading" data-page-node-id="OhKlwQLnXPiP4RJhW77VqL">
+        <p class="eyebrow" data-page-node-id="TrMv50cIFwEALbAO0C8swK"><span class="seal-dot" aria-hidden="true" data-page-node-id="OJXmq2KmrVlOTcICGHuUUr"></span>三代人的信用路</p>
+        <h2 id="identityTitle" data-page-node-id="JfWhAGSwmeJRejcPJ9F9xe">选择一个身份</h2>
+        <p data-page-node-id="HbEmqibxFb5MbBSJEGA9V6">每程三步：寻线、实操、装包。三个身份任选，也可以反复挑战更高评价。</p>
       </div>
-      <div class="identity-grid">
-        <button class="identity-card" type="button" data-role="grandparent">
-          <span class="identity-number">01</span>
-          <span class="identity-era">1978 · 天津南郊乡村</span>
-          <span class="identity-portrait portrait-grandparent" aria-hidden="true">
-            <svg viewBox="0 0 120 150">
-              <path class="p-backdrop" d="M60 6 C30 6 8 28 8 56 V144 H112 V56 C112 28 90 6 60 6 Z"/>
-              <ellipse class="p-ground" cx="60" cy="138" rx="34" ry="5"/>
-              <path class="p-coat" d="M24 150 V116 C24 96 40 84 60 84 C80 84 96 96 96 116 V150 Z"/>
-              <line class="p-strap" x1="40" y1="86" x2="80" y2="150"/>
-              <line class="p-placket" x1="60" y1="88" x2="60" y2="150"/>
-              <g class="p-knots">
-                <line x1="54" y1="98" x2="66" y2="98"/>
-                <line x1="54" y1="112" x2="66" y2="112"/>
-                <line x1="54" y1="126" x2="66" y2="126"/>
-                <line x1="54" y1="140" x2="66" y2="140"/>
-              </g>
-              <rect class="p-neck" x="53" y="70" width="14" height="14" rx="4"/>
-              <circle class="p-skin" cx="60" cy="52" r="17"/>
-              <path class="p-scarf" d="M60 28 C45 28 36 40 37 54 C38 64 42 71 46 75 C44 65 49 58 60 58 C71 58 76 65 74 75 C78 71 82 64 83 54 C84 40 75 28 60 28 Z"/>
-              <path class="p-scarf-tie" d="M52 73 L60 84 L68 73 L65 92 H55 Z"/>
-              <circle class="p-scarf-dot" cx="48" cy="42" r="1.6"/>
-              <circle class="p-scarf-dot" cx="72" cy="42" r="1.6"/>
-              <circle class="p-scarf-dot" cx="60" cy="35" r="1.6"/>
-              <g class="p-book" transform="translate(80 106) rotate(-8)">
-                <rect width="26" height="20" rx="2"/>
-                <rect class="p-book-line" x="4" y="4" width="18" height="12" rx="1"/>
-                <line class="p-book-mark" x1="8" y1="8" x2="18" y2="8"/>
-                <line class="p-book-mark" x1="8" y1="12" x2="15" y2="12"/>
-              </g>
-            </svg>
-          </span>
-          <strong>杨凤英</strong>
-          <small>生产队会计</small>
-          <p>春耕将至，你要把一笔乡土信用变成清清楚楚的账。</p>
-          <i class="identity-status">进入这一程</i>
-        </button>
-        <button class="identity-card" type="button" data-role="parent">
-          <span class="identity-number">02</span>
-          <span class="identity-era">1998 · 天津区县乡镇</span>
-          <span class="identity-portrait portrait-parent" aria-hidden="true">
-            <svg viewBox="0 0 120 150">
-              <path class="p-backdrop" d="M60 6 C30 6 8 28 8 56 V144 H112 V56 C112 28 90 6 60 6 Z"/>
-              <ellipse class="p-ground" cx="60" cy="138" rx="34" ry="5"/>
-              <path class="p-jacket" d="M22 150 V114 C22 94 40 82 60 82 C80 82 98 94 98 114 V150 Z"/>
-              <path class="p-shirt" d="M53 84 L60 98 L67 84 Z"/>
-              <path class="p-lapel-l" d="M60 84 L45 95 L51 114 L60 100 Z"/>
-              <path class="p-lapel-r" d="M60 84 L75 95 L69 114 L60 100 Z"/>
-              <line class="p-zip" x1="60" y1="112" x2="60" y2="150"/>
-              <rect class="p-neck" x="53" y="68" width="14" height="14" rx="4"/>
-              <circle class="p-ear" cx="43" cy="54" r="3.4"/>
-              <circle class="p-ear" cx="77" cy="54" r="3.4"/>
-              <circle class="p-skin" cx="60" cy="52" r="17"/>
-              <path class="p-hair" d="M42 54 C40 36 50 27 60 27 C70 27 80 36 78 54 C75 45 71 40 60 40 C49 40 45 45 42 54 Z"/>
-              <line class="p-part" x1="52" y1="31" x2="49" y2="42"/>
-              <g class="p-case" transform="translate(84 116)">
-                <rect width="28" height="21" rx="3"/>
-                <path class="p-case-handle" d="M8 0 C8 -6 20 -6 20 0"/>
-                <rect class="p-case-latch" x="11" y="8" width="6" height="4" rx="1"/>
-              </g>
-            </svg>
-          </span>
-          <strong>李建国</strong>
-          <small>乡镇个体户</small>
-          <p>订单来了、机器要换，你要在发展速度与经营安全间做出判断。</p>
-          <i class="identity-status">进入这一程</i>
-        </button>
-        <button class="identity-card" type="button" data-role="youth">
-          <span class="identity-number">03</span>
-          <span class="identity-era">2026 · 天津乡村振兴场景</span>
-          <span class="identity-portrait portrait-youth" aria-hidden="true">
-            <svg viewBox="0 0 120 150">
-              <path class="p-backdrop" d="M60 6 C30 6 8 28 8 56 V144 H112 V56 C112 28 90 6 60 6 Z"/>
-              <ellipse class="p-ground" cx="60" cy="138" rx="34" ry="5"/>
-              <path class="p-hoodie" d="M24 150 V116 C24 96 40 84 60 84 C80 84 96 96 96 116 V150 Z"/>
-              <path class="p-hood" d="M40 90 C44 78 76 78 80 90 C74 85 66 83 60 83 C54 83 46 85 40 90 Z"/>
-              <line class="p-string" x1="55" y1="92" x2="53" y2="108"/>
-              <line class="p-string" x1="65" y1="92" x2="67" y2="108"/>
-              <path class="p-apron" d="M45 104 H75 L79 150 H41 Z"/>
-              <line class="p-apron-strap" x1="45" y1="104" x2="52" y2="88"/>
-              <line class="p-apron-strap" x1="75" y1="104" x2="68" y2="88"/>
-              <rect class="p-apron-pocket" x="51" y="122" width="18" height="13" rx="2"/>
-              <rect class="p-neck" x="53" y="68" width="14" height="14" rx="4"/>
-              <circle class="p-skin" cx="60" cy="52" r="17"/>
-              <path class="p-hair-main" d="M42 56 C39 36 50 25 60 25 C70 25 81 36 78 56 C76 46 71 41 60 41 C49 41 44 46 42 56 Z"/>
-              <path class="p-ponytail" d="M76 42 C88 48 91 66 86 86 C84 94 77 98 73 95 C78 84 78 64 73 52 Z"/>
-              <circle class="p-tie" cx="77" cy="46" r="2.6"/>
-              <g class="p-phone" transform="translate(24 106) rotate(6)">
-                <rect width="15" height="24" rx="3"/>
-                <rect class="p-phone-screen" x="2.5" y="3.5" width="10" height="15" rx="1.5"/>
-                <circle class="p-phone-dot" cx="7.5" cy="21" r="1.2"/>
-              </g>
-              <circle class="p-hand" cx="35" cy="112" r="4.5"/>
-              <g class="p-box" transform="translate(86 128)">
-                <rect width="22" height="17" rx="2"/>
-                <line class="p-box-tape" x1="11" y1="0" x2="11" y2="17"/>
-              </g>
-            </svg>
-          </span>
-          <strong>周晓桐</strong>
-          <small>返乡创业者</small>
-          <p>订单都在手机里，你要让数字效率与服务温度同时在线。</p>
-          <i class="identity-status">进入这一程</i>
-        </button>
-      </div>
-      <button class="future-lock" id="futureLock" type="button" disabled>集齐三枚信用印记后，进入未来视界</button>
+
+      <div class="identity-grid" id="identityGrid" data-page-node-id="GjYCEmpcef5GEKh6CVdmBR"></div>
+
+      <button class="future-lock" id="futureLock" type="button" disabled data-page-node-id="KpBEOqTVLnhEZ3VCnUTyps">集齐三枚信用印记后，进入未来视界</button>
     </section>
 
-    <section class="screen role-screen" id="roleScreen" aria-labelledby="roleName" hidden>
-      <div class="role-hud">
-        <button id="backToRoles" type="button">返回身份地图</button>
-        <div class="role-hud-title">
-          <span id="roleChapter">第一程 · 1978</span>
-          <strong id="roleName">杨凤英</strong>
-          <small id="roleOccupation">生产队会计</small>
+    <!-- ============ 角色任务屏 ============ -->
+    <section class="screen role-screen" id="roleScreen" aria-labelledby="roleName" hidden data-page-node-id="7tf24kNDUT8iWD6rbSZs50">
+      <div class="role-hud" data-page-node-id="rutyxG7NGdTIHyjGl0q1K3">
+        <button id="backToRoles" type="button" data-page-node-id="OZn4d6dAC5p5P1K0ZDQOiN">← 返回身份地图</button>
+        <div class="role-hud-title" data-page-node-id="pF64nbH1X0IabpvHrUOeaF">
+          <span id="roleChapter" data-page-node-id="N5HlJzkBfeBKz8pUPdnBPO">第一程 · 1978</span>
+          <strong id="roleName" data-page-node-id="WlLFwK2wG5yS4FFpnDxMpS">杨凤英</strong>
+          <small id="roleOccupation" data-page-node-id="AoL3pVlYQSM5z2z5yZ8PQS">生产队会计</small>
         </div>
-        <div class="step-meter" aria-label="当前身份任务进度">
-          <span id="stepLabel">任务 1 / 3</span>
-          <i></i><i></i><i></i>
+        <div class="step-meter" aria-label="当前身份任务进度" data-page-node-id="otRA6xRI8d2wkSg97Lh1bZ">
+          <span id="stepLabel" data-page-node-id="pPuaeRbiTMRMZN9PAgeoH1">任务 1 / 3</span>
+          <i data-page-node-id="YdLCnrWtVzxAvi6ySaGICT"></i><i data-page-node-id="70P1R539YuCdjSxGD2Nd5s"></i><i data-page-node-id="JdLGo4zDpomjDajuP8b4EZ"></i>
         </div>
       </div>
 
-      <div class="scene-hotspots" id="sceneHotspots"></div>
-      <div class="place-label" id="placeLabel"><span>1978 · 春耕前</span><strong>天津南郊乡村</strong></div>
+      <div class="scene-hotspots" id="sceneHotspots" data-page-node-id="XoPE59TfpUP7rILV9nWzoC"></div>
+      <div class="place-label" id="placeLabel" data-page-node-id="qv3peJAcXElWZzzqSvYzgF"><span data-page-node-id="M8Gym3qMVXgSSyLhjBlNyC">1978 · 春耕前</span><strong data-page-node-id="2VkniyvvkiTzIw2zQGBjtf">天津南郊乡村</strong></div>
 
-      <aside class="mission-panel" aria-live="polite">
-        <div class="mission-source">
-          <span id="missionSource">情境复原</span>
-          <small id="missionType">寻找时代线索</small>
+      <aside class="mission-panel" id="missionPanel" aria-live="polite" data-stage="explore" data-page-node-id="9bCYr7rQCcLbU11VYi0qsv">
+        <div class="mission-source" data-page-node-id="F4IbZJwZttRic6DVSxmvOp">
+          <span id="missionSource" data-page-node-id="y2B7FXSpFEA7qPlJJoTSKd">情境复原</span>
+          <small id="missionType" data-page-node-id="BTDdtSs9XBVGd7YHe1cRj6">寻找时代线索</small>
         </div>
-        <h2 id="missionTitle">春耕就要开始，先把账理清</h2>
-        <p id="missionBody">院里散落着那个年代的金融物件。找到三件能帮助登记、计算和送达信用的工具。</p>
-        <div class="mission-actions" id="missionActions"></div>
-        <p class="mission-feedback" id="missionFeedback">0 / 3 件线索已装入挎包</p>
+        <h2 id="missionTitle" data-page-node-id="3YzbNL2q3yEfIE9MXKnTUM">春耕就要开始，先把账理清</h2>
+        <p class="mission-body" id="missionBody" data-page-node-id="czQsexQZ5KKhCvOiqbIXou">院里散落着那个年代的金融物件。找到三件能帮助登记、计算和送达信用的工具。</p>
+
+        <div class="mission-actions" id="missionActions" data-page-node-id="tMRC6eUZQxmzeOOy4sfw4l"></div>
+
+        <p class="mission-feedback" id="missionFeedback" data-page-node-id="qrM9JnSoVnLDn3GupRrCkq">0 / 3 件线索已装入挎包</p>
       </aside>
 
-      <div class="inventory" aria-label="挎包中的线索">
-        <span class="inventory-bag" aria-hidden="true"><i></i><b></b></span>
-        <div><small>挎包里</small><p id="inventoryText">还没有线索</p></div>
+      <div class="inventory" aria-label="挎包中的线索" data-page-node-id="G9qKtHlwmYfeANBsNO4MmV">
+        <span class="inventory-bag" aria-hidden="true" data-page-node-id="tOwe1Ls5muMKsqmJGwhPjX"><i data-page-node-id="MGaVUCQFOHOm7sRwPv4e5x"></i><b data-page-node-id="PqPSFzTdrxYK6Xcn8SHler"></b></span>
+        <div class="inventory-body" data-page-node-id="3rT32WseB88UJkajVcM29B">
+          <small data-page-node-id="kVhnoXBHfgk2FEKHV45KSc">挎包里</small>
+          <p id="inventoryText" data-page-node-id="VAAsd81LHEZSTYP6IDQNLt">还没有线索</p>
+          <div class="capacity-bar" id="invCapacity" aria-hidden="true" data-page-node-id="ioY5cqBHt2eXszn9CZt5Qw"></div>
+        </div>
       </div>
     </section>
 
-    <section class="screen result-screen" id="resultScreen" aria-labelledby="resultTitle" hidden>
-      <div class="stamp-earned" id="earnedStamp" aria-hidden="true"><span>乡土信用</span><strong>信用在路上</strong><small>第一代</small></div>
-      <p class="eyebrow">一程完成</p>
-      <h2 id="resultTitle">你把“账目清楚、承诺有据”装进了挎包</h2>
-      <p id="resultBody">对第一代而言，信用的温度来自熟悉的人，信用的分量来自清楚的账。</p>
-      <div class="result-actions">
-        <button class="primary-action" id="nextRoleButton" type="button">体验下一代</button>
-        <button id="roleMapButton" type="button">返回身份地图</button>
+    <!-- ============ 结算屏 ============ -->
+    <section class="screen result-screen" id="resultScreen" aria-labelledby="resultTitle" hidden data-page-node-id="ZSoSIlgMVwzJA2mcCrnaYy">
+      <div class="stamp-earned" id="earnedStamp" aria-hidden="true" data-page-node-id="trTGCbRxz6dnKntP0IbGMq">
+        <span data-page-node-id="MBDXDOaQW7zSfrl3EDXCv0">乡土信用</span><strong data-page-node-id="J6jIPQS7jNRU0vaUrrkpt6">信用在路上</strong><small data-page-node-id="3eP7hIFVBHz5lJhIKaUL2x">第一代</small>
+      </div>
+      <p class="eyebrow" data-page-node-id="uaKSDHIhmmHZVByR96A80K"><span class="seal-dot" aria-hidden="true" data-page-node-id="kIuGMYjkm7nDoYrj8LnrBF"></span>一程完成</p>
+      <h2 id="resultTitle" data-page-node-id="RGlY51DG3uSzTOwit3cyXn">你把「账目清楚、承诺有据」装进了挎包</h2>
+      <p id="resultBody" data-page-node-id="XA8rlaPpY1uv33mL6HrDV4">对第一代而言，信用的温度来自熟悉的人，信用的分量来自清楚的账。</p>
+
+      <div class="result-score" id="resultScore" aria-label="本程三维评价" data-page-node-id="4RXXmogzSCdHNqZlDELBpq"></div>
+      <div class="result-grade" data-page-node-id="L5KfVenPWnhPRmm3PfNENu"><span id="resultGrade" data-page-node-id="JJn2ccM8EV7zRATlJJ1Urt">良</span><small id="resultGradeNote" data-page-node-id="wPhKX77OnWP12koIiDgPdM">这一程走得稳当</small></div>
+
+      <div class="result-actions" data-page-node-id="auT0Wk9AZSmQ50EIoGEenq">
+        <button class="primary-action" id="nextRoleButton" type="button" data-page-node-id="wSwXhIu21XVIEcyqlxajbR">体验下一代</button>
+        <button id="roleMapButton" type="button" data-page-node-id="LUGD5RdroXgKsGAxuP09AW">返回身份地图</button>
       </div>
     </section>
 
-    <section class="screen future-screen" id="futureScreen" aria-labelledby="futureTitle" hidden>
-      <div class="future-heading">
-        <p class="eyebrow">最终章 · 视界</p>
-        <h2 id="futureTitle">把三代人的挎包，交给未来</h2>
-        <p>拖动权重，决定未来金融服务更偏向关系与稳健，还是数字与效率。</p>
+    <!-- ============ 未来视界 ============ -->
+    <section class="screen future-screen" id="futureScreen" aria-labelledby="futureTitle" hidden data-page-node-id="gsG8mwiyYbJcKNb2N7yjrR">
+      <div class="future-heading" data-page-node-id="bxeAzlYzqkXeVtoq7pQKDN">
+        <p class="eyebrow" data-page-node-id="1tVDVhq29mq2OwWRtAJXrq"><span class="seal-dot" aria-hidden="true" data-page-node-id="On0muQObD0jym40oHJisRv"></span>最终章 · 视界</p>
+        <h2 id="futureTitle" data-page-node-id="Kz6C4Jal1mc4tr21oGXahX">把三代人的挎包，交给未来</h2>
+        <p data-page-node-id="FLJHxW8x981bPdkC7uQOJV">未来不会一次全摊开。<b data-page-node-id="XaQee5wMMNnZ7rXyINpP7K">六件</b>难事一件件来，每件只能选一条路——选完就不能回头。</p>
       </div>
-      <div class="future-control">
-        <div><span>稳健传承</span><strong id="steadyValue">55</strong><small>%</small></div>
-        <input id="futureSlider" type="range" min="0" max="100" value="45" aria-label="调节创新变革权重">
-        <div><span>创新变革</span><strong id="innovationValue">45</strong><small>%</small></div>
+
+      <div class="future-budget" data-page-node-id="V8yY5UCmVWMfvdaByVf1BW">
+        <span data-page-node-id="UqCJhSP8PpxSvp5IN25OcG">还剩几件</span>
+        <strong id="futureRemaining" data-page-node-id="zRIPrQbdBlMVaZGg1b7eLA">12</strong>
+        <div class="future-budget-pips" id="futurePips" aria-hidden="true" data-page-node-id="GkMFRZEwaFQ78UgA52M5uu"></div>
       </div>
-      <div class="future-result" aria-live="polite">
-        <span id="futureMode">线上线下协同</span>
-        <h3 id="futureScenario">手机完成常用业务，服务站处理复杂需求，关键环节保留人工复核。</h3>
-        <p id="futureRisk">底线：数字化不能撤走人工通道，也不能让数据超出用户授权边界。</p>
+
+      <div class="future-alloc" id="futureAlloc" data-page-node-id="vNta6jrW3vO3SfNnvprO0p"></div>
+
+      <div class="future-gauges" id="futureGauges" aria-live="polite" data-page-node-id="mTYmcGmunyNIss1BXXxyGL"></div>
+
+      <div class="future-result" aria-live="polite" data-page-node-id="ixsy4OstezAocCw3MLUPHD">
+        <span class="future-mode-tag" id="futureMode" data-page-node-id="H7MRBSGIe24OPxwuPcCpwl">线上线下协同</span>
+        <h3 id="futureScenario" data-page-node-id="BNU1G9CJRjDPEEOYyyfxX4">先投放资源，这里会显示你的未来图景。</h3>
+        <p id="futureRisk" data-page-node-id="mOkzAZazCsVqFcRUxkOYFB">底线：三条指标同时过线，方案才算落地。</p>
       </div>
-      <div class="future-principles" aria-label="不可牺牲的金融服务原则">
-        <span>风险可解释</span><span>隐私有边界</span><span>人工能兜底</span><span>服务不落人</span>
+
+      <div class="future-principles" aria-label="不可牺牲的金融服务原则" data-page-node-id="14YcLiuUEdczSNccJKIat2">
+        <span data-page-node-id="G9k2jNyQVkQebpBKSROFB5">风险可解释</span><span data-page-node-id="xqP9LkfwIXcoytVM8m6Q1O">隐私有边界</span><span data-page-node-id="OU9NJsztdFZrOt4d6mIYL6">人工能兜底</span><span data-page-node-id="g5luLbDF3QBMk4pOx0pKzh">服务不落人</span>
       </div>
-      <button class="primary-action" id="makeEnding" type="button">生成我的未来结局</button>
+
+      <button class="primary-action" id="makeEnding" type="button" data-page-node-id="EKSmC8kQuSmDsPqJK0AipO">生成我的未来结局</button>
     </section>
 
-    <section class="screen ending-screen" id="endingScreen" aria-labelledby="endingTitle" hidden>
-      <div class="ending-stamps" aria-hidden="true">
-        <span>乡土信用</span><span>稳健经营</span><span>数字普惠</span>
+    <!-- ============ 结局屏 ============ -->
+    <section class="screen ending-screen" id="endingScreen" aria-labelledby="endingTitle" hidden data-page-node-id="X5DWBgbBcAAJHxRmWmwYBV">
+      <p class="ending-stamp-row" id="endingStamps" aria-hidden="true" data-page-node-id="YlmWoDSEkpThVAtZuAweEM"></p>
+      <p class="eyebrow" data-page-node-id="5btlPcziHuKKj1UBm9xiHl"><span class="seal-dot" aria-hidden="true" data-page-node-id="87UirrYt84QFrZF4qD4V2o"></span>遗产 · 记忆 · 视界</p>
+      <h2 id="endingTitle" data-page-node-id="9aPqjgO9N4gOx3FHsViNHY">挎包会旧，<br data-page-node-id="hHmjVAHeIL8aa3t0Y5qT4F">服务的路不会停。</h2>
+      <p class="ending-tagline" id="endingTagline" data-page-node-id="ERoY8WYyQh72H4jDkGzJgR">守正创新</p>
+      <p id="endingText" data-page-node-id="BTxm8E0mQHeSpOlCA6qdoN">你选择了让稳健与创新并行。技术扩大了抵达的范围，挎包精神守住了信用的重量。</p>
+
+      <div class="ending-axes" id="endingAxes" aria-label="信用画像" data-page-node-id="btL1FlmwS4iQrvzGZMbrQc"></div>
+      <div class="ending-achievements" id="endingAchievements" data-page-node-id="UeKXflFl5TBmRYlUplbISe"></div>
+
+      <blockquote data-page-node-id="m8HBuA9SdCYFWAF7qcjciC">老字号往前走，靠的不是把过去背在身上，是知道哪些东西不能丢。</blockquote>
+
+      <div class="ending-actions" data-page-node-id="uLPUeEubcBoMUXJmQ6M3eR">
+        <button class="primary-action" id="downloadEnding" type="button" data-page-node-id="xNdCpVdEhwoOB1MACM7Nkn">保存结局海报</button>
+        <button id="viewLedgerButton" type="button" data-page-node-id="7hGgTwTju23gupar2p4GD8">翻看信用存折</button>
+        <button id="restartButton" type="button" data-page-node-id="ojn8QRLQWPwKo54XgPYS8i">重新体验</button>
       </div>
-      <p class="eyebrow">遗产 · 记忆 · 视界</p>
-      <h2 id="endingTitle">挎包会旧，<br>服务的路不会停。</h2>
-      <p id="endingText">你选择了让稳健与创新并行。技术扩大了抵达的范围，挎包精神守住了信用的重量。</p>
-      <blockquote>金融老字号的未来，不是复制过去，而是把过去珍视的东西带向明天。</blockquote>
-      <div class="ending-actions">
-        <button class="primary-action" id="downloadEnding" type="button">保存结局海报</button>
-        <button id="restartButton" type="button">重新体验</button>
+    </section>
+
+    <!-- ============ 信用存折 ============ -->
+    <section class="screen ledger-screen" id="ledgerScreen" aria-labelledby="ledgerTitle" hidden data-page-node-id="EN7AEDZkPAk77FGa7prz77">
+      <div class="ledger-book" data-page-node-id="zSXWBLv2VJVXqAlRa7Sa35">
+        <div class="ledger-spine" aria-hidden="true" data-page-node-id="y1R6683IWadwIjeQr2406P"></div>
+        <div class="ledger-page" data-page-node-id="8uDtg7UYGLQutl1Bf4ga8t">
+          <div class="ledger-head" data-page-node-id="Y1u79H3Z7ttCjHktvMhEy1">
+            <div data-page-node-id="vl07oS1mIFDXCxb7Vj1qUu">
+              <p class="eyebrow" data-page-node-id="u1aZpRexOqkcppN3J0r9x8"><span class="seal-dot" aria-hidden="true" data-page-node-id="loufVFTXSEcI6oJVeF2umd"></span>往来存折</p>
+              <h2 id="ledgerTitle" data-page-node-id="0gHHBddgbxSEUn8Fnqfary">我的信用存折</h2>
+            </div>
+            <span class="ledger-seal" aria-hidden="true" data-page-node-id="VyCi5saVnhkPeRHQvHxNcA">津沽</span>
+          </div>
+
+          <div class="ledger-axes" id="ledgerAxes" aria-label="三维信用画像" data-page-node-id="ztbY3jfU9n362r2H8jFsVc"></div>
+          <div class="ledger-entries" id="ledgerEntries" data-page-node-id="PjqVFrLPNkGwErUtTpehUN"></div>
+          <p class="ledger-empty" id="ledgerEmpty" data-page-node-id="yqeyJqGBhIEL6hOXusSSAK">还没有任何记录。先走完一程，这里就会记下第一笔。</p>
+
+          <div class="ledger-foot" data-page-node-id="kf15Ws2OuHVKR3VznjJKom">
+            <div class="ledger-achievements" data-page-node-id="vgKmETKNgBmbpesSxgBlLC">
+              <small data-page-node-id="32fZMUSvmWFVbCfNXPYIuL">印记收藏</small>
+              <div id="ledgerAchievements" data-page-node-id="NsrPfgV2Rq4k23ZD9HnZcm"></div>
+            </div>
+            <button id="closeLedger" type="button" data-page-node-id="4LDceyHm4zIcuBxG5lh0nG">合上存折</button>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <dialog class="archive-dialog" id="archiveDialog">
-    <button class="dialog-close" id="closeArchive" type="button" aria-label="关闭档案库">×</button>
-    <p class="eyebrow">遗产 / 史实档案</p>
-    <h2>天津农信到天津农商银行</h2>
-    <div class="archive-timeline">
-      <article><time>1952</time><h3>白塘口村信用社</h3><p>天津农商银行官网记载，其起源于天津南郊区白塘口村信用社。</p></article>
-      <article><time>2005</time><h3>天津农村合作银行</h3><p>机构改制为天津农村合作银行，城乡金融服务继续发展。</p></article>
-      <article><time>2010.06</time><h3>天津农商银行</h3><p>改制重组为天津农村商业银行，服务网络覆盖城乡。</p></article>
-      <article><time>2025.06</time><h3>“津门老字号”</h3><p>官网披露，天津农商银行于2025年6月获评“津门老字号”。</p></article>
+  <!-- ============ 档案库弹窗 ============ -->
+  <dialog class="archive-dialog" id="archiveDialog" data-page-node-id="7M7LHeKkb8EIKtuVAllNDj">
+    <button class="dialog-close" id="closeArchive" type="button" aria-label="关闭档案库" data-page-node-id="3AlggRQTIqmxYD24YbKGkH">×</button>
+    <p class="eyebrow" data-page-node-id="tPwATmmUI61CnIFB2zCZ8e"><span class="seal-dot" aria-hidden="true" data-page-node-id="yDS1x0S7Kls7txuVPSabJ6"></span>遗产 / 史实档案</p>
+    <h2 data-page-node-id="eW8ffhhRd4WMEnf5EIkHLx">天津农信到天津农商银行</h2>
+    <div class="archive-timeline" data-page-node-id="2fgYWK9A4Hw8HeCZjSEICr">
+      <article data-page-node-id="F5dEzDkWTTPN5WQHZUFZ6g"><time data-page-node-id="GCXkgoRWEX9Kwt3QzVAdV5">1952</time><h3 data-page-node-id="pIHF4GWapMIQ19Vwxdo9xP">白塘口村信用社</h3><p data-page-node-id="LGNALkbzEiNRMVLHZ40Yat">天津农商银行官网记载，其起源于天津南郊区白塘口村信用社。</p></article>
+      <article data-page-node-id="EusM5ClGtlOrTRRq1GLHdp"><time data-page-node-id="6Zq6dfnDbCfhed8TpLQBvu">2005</time><h3 data-page-node-id="TEKfxjTdYo2rTFCEajLxEy">天津农村合作银行</h3><p data-page-node-id="prQrygelMGoPfimUXxY6el">机构改制为天津农村合作银行，城乡金融服务继续发展。</p></article>
+      <article data-page-node-id="e0rjsADm9kehyHpiHJBUEK"><time data-page-node-id="ApEzVfs14Am2dlDNzCstCA">2010.06</time><h3 data-page-node-id="bmFRjG9EDLyVqRkjZFMbX1">天津农商银行</h3><p data-page-node-id="scVmWOmqgDLe1vXoKI2WLP">改制重组为天津农村商业银行，服务网络覆盖城乡。</p></article>
+      <article data-page-node-id="M1fcQ0BpJ9Mt1bhkoFViTN"><time data-page-node-id="rvKcwkCDjmnkES8Ub8hAlH">2025.06</time><h3 data-page-node-id="s8zdt9FJlibDPRe231j4Q6">“津门老字号”</h3><p data-page-node-id="j9uC2urLhg5kYDJiC5YVnI">官网披露，天津农商银行于2025年6月获评“津门老字号”。</p></article>
     </div>
-    <div class="archive-boundary">
-      <strong>创作边界</strong>
-      <p>杨凤英、李建国、周晓桐均为合成角色；游戏任务属于依据历史语境进行的情境复原；最终章属于未来设计推演，不代表真实业务流程或金融产品承诺。</p>
+    <div class="archive-boundary" data-page-node-id="4wvm76JDRJnlA8il3PjFla">
+      <strong data-page-node-id="MygjzkjyHQANuTmhi2pdRA">创作边界</strong>
+      <p data-page-node-id="IW5uSBklbccc4OHgCfZDZC">杨凤英、李建国、周晓桐均为合成角色；游戏任务属于依据历史语境进行的情境复原；最终章属于未来设计推演，不代表真实业务流程或金融产品承诺。</p>
     </div>
-    <a href="https://www.trcbank.com.cn/class/intro/index.htm" target="_blank" rel="noreferrer">公开资料：天津农商银行“今日农商行”</a>
+    <a href="https://www.trcbank.com.cn/class/intro/index.htm" target="_blank" rel="noreferrer" data-page-node-id="P9LthqA4sAEVp7FknyCxj7">公开资料：天津农商银行“今日农商行”</a>
   </dialog>
 
-  <audio id="backgroundMusic" src="assets/津沽舒缓纯音乐.wav" preload="auto" loop></audio>
+  <audio id="backgroundMusic" src="assets/津沽舒缓纯音乐.wav" preload="auto" loop data-page-node-id="Hw3BkOwMOaPdP6DgXEEPOF"></audio>
   <script src="game.js"></script>
 </body>
 </html>
